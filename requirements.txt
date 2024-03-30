@@ -6,6 +6,7 @@ Flask
 Flask-Cors
 mlflow
 python-box
+ensure
 notebook
 joblib
 tqdm
