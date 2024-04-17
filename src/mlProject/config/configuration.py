@@ -67,7 +67,7 @@ class ConfigurationManager:
     def get_model_trainer_cofig(self)-> ModelTrainerConfig:
         config = self.config.model_trainer
         params = self.params.ElasticNet
-        schema = self.schema.TARGETED_COLUMN
+        schema = self.schema.TARGET_COLUMN
 
         create_directories([config.root_dir])
 
@@ -84,22 +84,22 @@ class ConfigurationManager:
         return model_trainer_config
     
 
-    def get_model_evaluation_config(self)-> ModelEvaluationConfig:
+    def get_model_evaluation_config(self) -> ModelEvaluationConfig:
         config = self.config.model_evaluation
         params = self.params.ElasticNet
-        schema = self.schema.TARGETED_COLUMN
-
+        schema =  self.schema.TARGET_COLUMN
 
         create_directories([config.root_dir])
 
         model_evaluation_config = ModelEvaluationConfig(
-            root_dir  = config.root_dir,
-            test_data_path = config.test_data_path,
+            root_dir=config.root_dir,
+            test_data_path=config.test_data_path,
             model_path = config.model_path,
-            all_params = params,
+            all_params=params,
             metric_file_name = config.metric_file_name,
             target_column = schema.name,
-            mlflow_uri = "https://dagshub.com/ShajahanPJ/datascience-project3-mlFlow.mlflow"
-
+            mlflow_uri="https://dagshub.com/ShajahanPJ/datascience-project3-mlFlow.mlflow",
+           
         )
+
         return model_evaluation_config
