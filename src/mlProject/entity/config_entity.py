@@ -13,8 +13,8 @@ class DataIngestionConfig:
 @dataclass(frozen=True)
 class DataValidationConfig:
     root_dir : Path
-    unzip_data_dir : Path
     STATUS_FILE : str
+    unzip_data_dir : Path
     all_schema :dict
 
 
@@ -33,3 +33,16 @@ class ModelTrainerConfig:
     alpha : float
     l1_ratio : float
     target_column : str
+
+
+
+@dataclass(frozen=True)
+class ModelEvaluationConfig:
+    root_dir: Path
+    test_data_path: Path
+    model_path: Path
+    all_params : dict
+    metric_file_name: Path
+    target_column: str
+    mlflow_uri: str
+    
